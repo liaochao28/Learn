@@ -15,19 +15,7 @@
 		<canvas id="canvas">
 			您的浏览器暂不支持该特效...
 		</canvas>
-		<script src="js/digit.js"></script>
-		<script src="js/countdown.js"></script>
-		<script>
-			(function(){
-				var context = document.getElementById("context");
-				var Width = document.body.clientWidth || document.documentElement.clientWidth;
-				var Height = document.body.clientHeight || document.documentElement.clientHeight;
-				var r = (Width * 4/5 /108) - 1;
-				var shouldHeight = Height * 0.2 + 20*(r+1) + 50;
-				console.log(shouldHeight);
-				context.style.top = shouldHeight + "px";
-				context.style.left = Width * 0.1 + "px";
-			})();
-		</script>
+		<script src="../js/digit.js"></script>
+		<script src="../js/countdown.js"></script>
 	</body>
 </html>

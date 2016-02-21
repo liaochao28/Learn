@@ -1,0 +1,89 @@
+/**
+ *===========
+ *模拟微信红包模糊照片效果
+ * create 2016/02/21
+**/
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/*blur.css*/
+.blur-box{
+	height: 600px;
+	width: 1024px;
+	margin: 0 auto;
+	padding: 0;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+}
+
+.blur-box img{
+	display: block;
+	height: 600px;
+	width: 1024px;
+	margin: 0 auto;
+	filter: blur(30px);
+	-webkit-filter: blur(30px);
+	-moz-filter: blur(30px);
+	-ms-filter: blur(30px);
+	-o-filter: blur(30px);
+	position: absolute;
+	z-index: 0;
+}
+
+.blur-box input{
+	display: inline-block;
+	height: 30px;
+	width: 80px;
+
+	border: none;
+	outline: none;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	box-sizing: border-box;
+
+	color: #fff;
+	line-height: 30px;
+	text-align: center;
+
+	cursor: pointer;
+
+	position: absolute;
+	bottom: 50px;
+	z-index: 5;
+}
+.blur-box input:active{
+	box-shadow: 0 0 5px rgba(0,0,0,.6) inset;
+}
+
+.reset{
+	background: green;
+	left: 50px;
+}
+.reset:hover{
+	background: #035603;
+}
+.show{
+	background: red;
+	right: 50px;
+}
+.show:hover{
+	background: #B30202;
+}
+
+#canvas{
+	display: block;
+	margin: 0 auto;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	z-index: 2;
+}

@@ -9,7 +9,7 @@ var context = canvas.getContext('2d');
 //刮痕的粗细
 var lineWidth = 50;
 
-//使用画线方法时 上个点
+//使用画线方法时 上一个点
 var lastLoc = {x: 0, y: 0};
 
 var isMouseDown = false;
@@ -17,26 +17,25 @@ var isMouseDown = false;
 canvas.width = canvasWidth;
 canvas.height = canvasHeight
 
+drawMask();
 
-context.beginPath();
-context.fillStyle = "#999";
-context.fillRect(0, 0, canvasWidth, canvasHeight);
-context.closePath();
 
 //设置canvas图形组合方式
-//图形组合方式设置为重叠部分不做绘画
+//图形组合方式 设置为重叠部分不做绘画
 context.globalCompositeOperation="destination-out";
 
 
 canvas.addEventListener("touchstart", function(e){
-	e.preventDefault();
+	var e = e || window.event;
+	stopDefault(e);
 	beginStroke( {x: e.clientX, y:e.clientY} );
 
 	//console.log("touchstart");
 });
 
 canvas.addEventListener('touchmove', function(e){
-	e.preventDefault();
+	var e = e || window.event;
+	stopDefault(e);
 	//console.log("touchmove");
 	if( isMouseDown ){
 		var touch = e.touches[0];
@@ -48,14 +47,15 @@ canvas.addEventListener('touchmove', function(e){
 		context.moveTo();
 		context.fill();
 		context.closePath();*/
-		
+
 		moveStroke( {x: touch.pageX, y: touch.pageY} );
 	}
 	
 });
 
 canvas.addEventListener('touchend', function(e){
-	e.preventDefault();
+	var e = e || window.event;
+	stopDefault(e);
 
 	endStroke();
 
@@ -90,7 +90,7 @@ function moveStroke(point){
 	context.moveTo(lastLoc.x,lastLoc.y);
 	context.lineTo(curLoc.x,curLoc.y);
 
-	context.strokeStyle = "black";
+	//context.strokeStyle = "black";
 	context.lineWidth = lineWidth;
 	//console.log(lineWidth);
 	context.lineCap = "round";
@@ -107,4 +107,25 @@ function windowToCanvas( x , y ) {
 		x: x - bbox.left,
 		y: y - bbox.top
 	}
+};
+
+//绘制上层遮罩
+function drawMask(){
+	context.beginPath();
+	context.fillStyle = "#999";
+	context.fillRect(0, 0, canvasWidth, canvasHeight);
+	context.closePath();
+};
+
+//阻止浏览器的默认行为 
+function stopDefault( e ) { 
+    //阻止默认浏览器动作(W3C) 
+    if ( e && e.preventDefault ) {
+        e.preventDefault(); 
+	}
+    //IE中阻止函数器默认动作的方式 
+    else{
+		window.event.returnValue = false; 
+	}
+    return false; 
 };

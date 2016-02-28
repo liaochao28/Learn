@@ -46,9 +46,9 @@ img{border:none;}
 }
 .poster-left-btn{
 	left:0;z-index: 10;
-	background: url(http://www.qiyipic.com/common/fix/site/site-focus-btnLeft.png) no-repeat center center; 
+	background: url(../resource/pic/site-focus-btnLeft.png) no-repeat center center; 
 }
 .poster-right-btn{
 	right:0;
-	background: url(http://www.qiyipic.com/common/fix/site/site-focus-btnRight.png) no-repeat center center; 
+	background: url(../resource/pic//site-focus-btnRight.png) no-repeat center center; 
 }

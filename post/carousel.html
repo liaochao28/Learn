@@ -40,7 +40,7 @@
 
 			<div class="poster-btn poster-right-btn" ></div>
 		</div>
-
+<!-- 
 		<div class="control">
 			<div>
 				<label for="verticalAlign-top">顶部对齐：</label>
@@ -54,7 +54,7 @@
 				<label for="verticalAlign-bottom">底部对齐：</label>
 				<input id="verticalAlign-bottom" type="radio" value="bottom" name="verticalAlign">				
 			</div>
-		</div>
+		</div> -->
 
 		<script>
 			$(function(){
@@ -65,23 +65,6 @@
 				//使用类似jQuery的方法方法初始化
 				/*$(".Poster").init(function(){});*/
 			});
-
-
-			$(function() {
-				var radios = $(".control input");
-				radios.on("change propertychange",function(){
-					choiceVerticalAlignType($(radios).find("input[checked]"));
-				});
-			});
-
-			function choiceVerticalAlignType(elem) {
-				var type = elem.val();
-				var setting = $(".Poster").attr("data-setting");
-				setting.verticalAlign = type;
-
-				Carousel.init($(".Poster"));
-			};
-
 		</script>
 
 	</body>

@@ -41,6 +41,21 @@
 			<div class="poster-btn poster-right-btn" ></div>
 		</div>
 
+		<div class="control">
+			<div>
+				<label for="verticalAlign-top">顶部对齐：</label>
+				<input id="verticalAlign-top" type="radio" value="top" name="verticalAlign">
+			</div>
+			<div>
+				<label for="verticalAlign-middle">居中对齐：</label>
+				<input id="verticalAlign-middle" checked="checked" type="radio" value="middle" name="verticalAlign">
+			</div>
+			<div>
+				<label for="verticalAlign-bottom">底部对齐：</label>
+				<input id="verticalAlign-bottom" type="radio" value="bottom" name="verticalAlign">				
+			</div>
+		</div>
+
 		<script>
 			$(function(){
 				//var carousel = new Carousel($("Poster")); //如果有多个对象就要new多次
@@ -50,6 +65,23 @@
 				//使用类似jQuery的方法方法初始化
 				/*$(".Poster").init(function(){});*/
 			});
+
+
+			$(function() {
+				var radios = $(".control input");
+				radios.on("change propertychange",function(){
+					choiceVerticalAlignType($(radios).find("input[checked]"));
+				});
+			});
+
+			function choiceVerticalAlignType(elem) {
+				var type = elem.val();
+				var setting = $(".Poster").attr("data-setting");
+				setting.verticalAlign = type;
+
+				Carousel.init($(".Poster"));
+			};
+
 		</script>
 
 	</body>

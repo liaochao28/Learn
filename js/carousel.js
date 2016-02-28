@@ -135,8 +135,8 @@ Carousel.prototype = {
 					_this_.flag = true;
 				});
 			});
-			$(this).posterItems.each(function(i){
-				this.css("zIndex",zIndexArr[i]);
+			this.posterItems.each(function(i){
+				$(this).css("zIndex",zIndexArr[i]);
 			});
 		}
 	},

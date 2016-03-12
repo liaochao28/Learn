@@ -1,0 +1,71 @@
+<!-- carousel.html -->
+<!-- 旋转木马图片轮播插件 -->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>旋转木马焦点图轮播</title>
+		<meta name="viewport" content="width=device-width,initial-scale = 1.0,user-scalable = no">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<link rel="stylesheet" href="../css/carousel.css">
+		<script src="../js/jquery-1.11.3.min.js"></script>
+		<script src="../js/carousel.js"></script>
+	</head>
+	<body>
+		<div class="Poster poster-main" data-setting='{
+														"width":700,
+														"height":272,
+														"posterWidth":480,
+														"posterHeight":272,
+														"scale":0.9,
+														"speed":500,
+														"autoPlay":true,
+														"delay":5000,
+														"verticalAlign":"middle"
+														}'>
+			<div class="poster-btn poster-left-btn" ></div>
+
+			<ul class="poster-list">
+				<li class="poster-item"><a href="#"><img src="../resource/1.jpg" width="100%"></a></li>
+				<li class="poster-item"><a href="#"><img src="../resource/2.jpg" width="100%"></a></li>
+				<li class="poster-item"><a href="#"><img src="../resource/3.jpg" width="100%"></a></li>
+				<li class="poster-item"><a href="#"><img src="../resource/4.jpg" width="100%"></a></li>
+				<li class="poster-item"><a href="#"><img src="../resource/5.jpg" width="100%"></a></li>
+				<li class="poster-item"><a href="#"><img src="../resource/wx_photo.jpg" width="100%"></a></li>
+				<li class="poster-item"><a href="#"><img src="../resource/2.jpg" width="100%"></a></li>
+				<li class="poster-item"><a href="#"><img src="../resource/3.jpg" width="100%"></a></li>
+				<li class="poster-item"><a href="#"><img src="../resource/4.jpg" width="100%"></a></li>
+			</ul>
+
+			<div class="poster-btn poster-right-btn" ></div>
+		</div>
+<!-- 
+		<div class="control">
+			<div>
+				<label for="verticalAlign-top">顶部对齐：</label>
+				<input id="verticalAlign-top" type="radio" value="top" name="verticalAlign">
+			</div>
+			<div>
+				<label for="verticalAlign-middle">居中对齐：</label>
+				<input id="verticalAlign-middle" checked="checked" type="radio" value="middle" name="verticalAlign">
+			</div>
+			<div>
+				<label for="verticalAlign-bottom">底部对齐：</label>
+				<input id="verticalAlign-bottom" type="radio" value="bottom" name="verticalAlign">				
+			</div>
+		</div> -->
+
+		<script>
+			$(function(){
+				//var carousel = new Carousel($("Poster")); //如果有多个对象就要new多次
+				//在Casourel对象中定义一个init 的初始化方法 可直接初始化一个集合
+				Carousel.init($(".Poster"));	//在这里传入一个class为Poster的集合
+
+				//使用类似jQuery的方法方法初始化
+				/*$(".Poster").init(function(){});*/
+			});
+		</script>
+
+	</body>
+</html>

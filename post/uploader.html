@@ -1,0 +1,112 @@
+<!-- uploader.html -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalabel=no">
+	<title>文件上传预览</title>
+	<style>
+		.input-box{
+			display: block;
+			width:80px;
+			line-height: 40px;
+			text-align: center;
+			background: blue;
+			color:#fff;
+			vertical-align: middle;
+			overflow: hidden;
+			position: relative;
+		}
+
+
+		.btn-list ul{
+			height: 40px;
+			margin:0;
+			padding: 0;
+			list-style: none;
+		}
+		.btn-list ul li{
+			display: inline-block;
+			width:80px;
+			height: 100%;
+			line-height: 40px;
+			color: #fff;
+			background: blue;
+			text-align: center;
+			overflow: hidden;
+			cursor: pointer;
+			position: relative;
+		}
+		.btn-list ul li input[type="file"]{
+			margin-right: 100px;
+			height: 200px;
+			width:200px;
+			cursor: pointer;
+			position:absolute;
+			top: -50px;
+			left: -50px;
+		}
+		.btn-list ul li input[type="button"]{
+			display: block;
+			width: 100%;
+			height: 100%;
+			border:none;
+			outline: none;
+			background: #aaa;
+			color: #fff;
+		}
+		
+		.input-box input{
+			margin:-100px 0 0 -100px;
+			height:140px;
+			width:180px;
+			opacity: 0;
+			cursor: pointer;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+
+		.img-box{
+			display: inline-block;
+			width: 100%;
+			padding:3px;
+		}
+		.img-box img{
+			width: 40%;
+			max-width:150px;
+			border:1px solid #e0e0e0;
+			margin-right: 3px;
+		}
+	</style>
+</head>
+<body>
+<form action="www.baidu.com" method="post">
+	<div class="btn-list">
+		<ul>
+			<li>
+				<input type="file" class="upload" id="uploader" data-setting='{
+					"beAllowedImgType": ["jpg","png","jpeg","gif","bmp","tiff"]
+				}'>
+				<span>选择文件</span>
+			</li>
+			<li>
+				<input type="button" value="提交" onclick="">
+			</li>
+		</ul>
+	</div>
+</form>
+	
+
+	<!-- <p class="img-box"></p> -->
+	
+	<script src="../js/uploader.js"></script>
+	<script>
+		var inputs = document.querySelectorAll(".btn-list input[type=\"file\"]");
+		console.log(inputs)
+		UpLoader.init(inputs);
+
+	</script>
+
+</body>
+</html>
